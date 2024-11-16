@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dij13rqbb56y"]
+
+[ext_resource type="Texture2D" uid="uid://ch8w8kqblyww4" path="res://graphics/objects/ventilation_hole.png" id="1_ev8wn"]
+[ext_resource type="Texture2D" uid="uid://vo3duo8onb5w" path="res://graphics/decals/white.png" id="2_43o08"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jeeok"]
+radius = 87.0919
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hcnq5"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 50.0
+gravity = Vector3(50, -45, 0)
+scale_max = 3.0
+color = Color(0.856067, 0.856067, 0.856067, 0.313726)
+
+[node name="SteamVent" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jeeok")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ev8wn")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_hcnq5")
+texture = ExtResource("2_43o08")
+lifetime = 2.0
