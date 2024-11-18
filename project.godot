@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*res://global/globals.gd"
+TransitionLayer="*res://global/TransitionLayer.tscn"
 
 [display]
 
