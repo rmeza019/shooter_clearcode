@@ -7,7 +7,6 @@ var speed: int = max_speed
 
 signal laser(pos, direction)
 signal grenade(pos, direction)
-signal update_stats
 
 func _process(_delta: float) -> void:
 	#input
@@ -43,11 +42,3 @@ func _on_timer_laser_timeout() -> void:
 
 func _on_timer_grenade_timeout() -> void:
 	can_grenade = true
-
-func add_item(type:String) -> void:
-	if type == "laser":
-		Globals.laser_amount += 5
-	if type == "grenade":
-		Globals.grenade_amount += 1
-		
-	update_stats.emit()
