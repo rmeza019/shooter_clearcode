@@ -15,9 +15,29 @@ script = ExtResource("2_5n3cr")
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_7nyk6")
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="BaseSprite" parent="." index="1"]
 texture = ExtResource("2_ydlmq")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." index="2"]
-position = Vector2(0, 13)
+[node name="LidSprite" parent="." index="2"]
+position = Vector2(0, 5)
 texture = ExtResource("4_o534i")
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPositions" index="0"]
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPositions" index="1"]
+position = Vector2(-38, -32)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPositions" index="2"]
+position = Vector2(-77, 11)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPositions" index="3"]
+position = Vector2(49, -39)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnPositions" index="4"]
+position = Vector2(-128, -39)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnPositions" index="5"]
+position = Vector2(69, 18)
+
+[node name="Marker2D7" type="Marker2D" parent="SpawnPositions" index="6"]
+position = Vector2(119, -19)
