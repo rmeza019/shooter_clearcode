@@ -78,20 +78,19 @@ position = Vector2(-1415, 3050)
 frame_progress = 0.93526
 
 [node name="Toilet" parent="Ground" index="5" instance=ExtResource("9_bgsvk")]
-position = Vector2(227, 684)
-rotation = -2.50106
-collision_layer = 1
-collision_mask = 1
+position = Vector2(1208, 513)
+rotation = 0.937242
 
-[node name="Box" parent="Ground" index="6" instance=ExtResource("10_fhdhf")]
-position = Vector2(1030, 788)
-rotation = 1.7017
-collision_layer = 1
-collision_mask = 1
+[node name="Crate" parent="Ground" index="6" instance=ExtResource("10_fhdhf")]
+position = Vector2(104, 495)
+rotation = -0.584685
 
 [node name="Gate" parent="." index="1" instance=ExtResource("2_d765n")]
 
 [node name="Item" parent="." index="6" instance=ExtResource("12_hf5qg")]
-position = Vector2(981, 491)
+position = Vector2(257, 557)
+
+[node name="Item3" parent="." index="7" instance=ExtResource("12_hf5qg")]
+position = Vector2(908, 732)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
