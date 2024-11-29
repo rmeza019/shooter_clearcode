@@ -6,10 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://c8v643m81165h" path="res://graphics/objects/lid.png" id="4_88d7h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_orku6"]
-radius = 122.0
-height = 244.0
+radius = 102.5
+height = 217.5
 
 [node name="Toilet" instance=ExtResource("1_pet6h")]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("2_v78as")
 
 [node name="CollisionShape2D" parent="." index="0"]

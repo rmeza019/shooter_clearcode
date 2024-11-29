@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dipsqx8bwrvev"]
+[gd_scene load_steps=10 format=3 uid="uid://dipsqx8bwrvev"]
 
 [ext_resource type="PackedScene" uid="uid://d1im0yqjkfc77" path="res://scenes/levels/level.tscn" id="1_lqe8t"]
 [ext_resource type="Texture2D" uid="uid://c7kt42djdkgai" path="res://graphics/ground/dirt.png" id="2_4sp16"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_5ogjf"]
 [ext_resource type="TileSet" uid="uid://q25xy2v34x28" path="res://scenes/levels/house.tres" id="2_nu1of"]
+[ext_resource type="Texture2D" uid="uid://cw1hfrrdy53os" path="res://graphics/decals/brushes/brush056.png" id="3_woprr"]
 [ext_resource type="Texture2D" uid="uid://dny5tj7ycsi4u" path="res://graphics/lights/textures/circle.png" id="4_fmm85"]
 [ext_resource type="PackedScene" uid="uid://do11fyame73w" path="res://scenes/objects/light_fan_animation.tscn" id="4_jukqp"]
 [ext_resource type="PackedScene" uid="uid://b8f3ffs0lh2tx" path="res://scenes/objects/wall_light.tscn" id="5_7qh4r"]
@@ -14,14 +15,22 @@ size = Vector2(750, 187)
 [node name="Inside" instance=ExtResource("1_lqe8t")]
 script = ExtResource("2_5ogjf")
 
+[node name="Decals" type="Node2D" parent="." index="0"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Decals" index="0"]
+position = Vector2(2490, 608)
+texture = ExtResource("3_woprr")
+
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
+z_index = -2
 texture_repeat = 2
-position = Vector2(1051, 313)
+position = Vector2(970, 337)
 texture = ExtResource("2_4sp16")
 region_enabled = true
 region_rect = Rect2(-4136.69, -2347.53, 9455.75, 4934.72)
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
+z_index = -1
 tile_set = ExtResource("2_nu1of")
 format = 2
 layer_0/name = "Floor"
@@ -31,7 +40,18 @@ layer_1/tile_data = PackedInt32Array(-131076, 196609, 0, -196600, 327681, 0, 327
 layer_2/name = "Inner Walls"
 layer_2/tile_data = PackedInt32Array(196604, 262145, 7, 196605, 1, 6, 196606, 1, 6, 196607, 1, 6, 131072, 1, 6, 131073, 1, 6, 131074, 1, 6, -196603, 327681, 6, -131067, 65537, 6, -65531, 65537, 6, 5, 65537, 6, -4, 262145, 7, -3, 1, 6, -2, 1, 6, -1, 1, 6, -196608, 327681, 6, -131072, 65537, 6, 327683, 327681, 8, 262147, 65537, 6, 131075, 65537, 7)
 
-[node name="Player" parent="." index="2"]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="5"]
+color = Color(0.489173, 0.330679, 0.199604, 1)
+blend_mode = 1
+
+[node name="ExitGateArea" type="Area2D" parent="." index="6"]
+position = Vector2(2730, -980)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
+position = Vector2(0, 30.5)
+shape = SubResource("RectangleShape2D_pxoq3")
+
+[node name="Player" parent="." index="7"]
 position = Vector2(2439, -300)
 metadata/_edit_group_ = true
 
@@ -58,16 +78,5 @@ rotation = 1.5708
 [node name="WallLight2" parent="Lights" index="5" instance=ExtResource("5_7qh4r")]
 position = Vector2(3204, 571)
 rotation = -1.5708
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
-color = Color(0.489173, 0.330679, 0.199604, 1)
-blend_mode = 1
-
-[node name="ExitGateArea" type="Area2D" parent="." index="5"]
-position = Vector2(2730, -980)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
-position = Vector2(0, 30.5)
-shape = SubResource("RectangleShape2D_pxoq3")
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]

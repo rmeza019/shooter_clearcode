@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c025hmi2r52lb"]
+[gd_scene load_steps=17 format=3 uid="uid://c025hmi2r52lb"]
 
 [ext_resource type="PackedScene" uid="uid://d1im0yqjkfc77" path="res://scenes/levels/level.tscn" id="1_ge4ga"]
 [ext_resource type="Texture2D" uid="uid://cexpfew6xgcuk" path="res://graphics/ground/stones.png" id="2_85xta"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d1uikjbse0dnx" path="res://scenes/objects/toilet.tscn" id="9_bgsvk"]
 [ext_resource type="PackedScene" uid="uid://demcplhbbrbr" path="res://scenes/objects/crate.tscn" id="10_fhdhf"]
 [ext_resource type="PackedScene" uid="uid://dd0epeqy6vs8f" path="res://scenes/items/item.tscn" id="12_hf5qg"]
+[ext_resource type="PackedScene" uid="uid://bxujno5kahon0" path="res://scenes/enemies/scout.tscn" id="12_x23i0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yplp2"]
 resource_name = "walls"
@@ -81,11 +82,22 @@ frame_progress = 0.93526
 position = Vector2(1208, 513)
 rotation = 0.937242
 
-[node name="Crate" parent="Ground" index="6" instance=ExtResource("10_fhdhf")]
+[node name="Toilet2" parent="Ground" index="6" instance=ExtResource("9_bgsvk")]
+position = Vector2(1204, 908)
+rotation = 0.937242
+
+[node name="Crate" parent="Ground" index="7" instance=ExtResource("10_fhdhf")]
 position = Vector2(104, 495)
 rotation = -0.584685
 
+[node name="Crate2" parent="Ground" index="8" instance=ExtResource("10_fhdhf")]
+position = Vector2(304, 935)
+rotation = -2.77333
+
 [node name="Gate" parent="." index="1" instance=ExtResource("2_d765n")]
+
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("12_x23i0")]
+position = Vector2(1162, 1059)
 
 [node name="Item" parent="." index="6" instance=ExtResource("12_hf5qg")]
 position = Vector2(257, 557)
@@ -93,4 +105,9 @@ position = Vector2(257, 557)
 [node name="Item3" parent="." index="7" instance=ExtResource("12_hf5qg")]
 position = Vector2(908, 732)
 
+[node name="Player" parent="." index="8"]
+position = Vector2(-114, 803)
+
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
