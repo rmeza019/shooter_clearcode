@@ -43,3 +43,6 @@ func _on_timer_laser_timeout() -> void:
 
 func _on_timer_grenade_timeout() -> void:
 	can_grenade = true
+
+func hit():
+	print("player took damage")

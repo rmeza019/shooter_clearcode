@@ -25,6 +25,10 @@ TransitionLayer="*res://global/TransitionLayer.tscn"
 window/size/viewport_width=1280
 window/size/viewport_height=780
 
+[global_group]
+
+Entities=""
+
 [input]
 
 left={

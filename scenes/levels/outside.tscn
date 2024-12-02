@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c025hmi2r52lb"]
+[gd_scene load_steps=18 format=3 uid="uid://c025hmi2r52lb"]
 
 [ext_resource type="PackedScene" uid="uid://d1im0yqjkfc77" path="res://scenes/levels/level.tscn" id="1_ge4ga"]
 [ext_resource type="Texture2D" uid="uid://cexpfew6xgcuk" path="res://graphics/ground/stones.png" id="2_85xta"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://demcplhbbrbr" path="res://scenes/objects/crate.tscn" id="10_fhdhf"]
 [ext_resource type="PackedScene" uid="uid://dd0epeqy6vs8f" path="res://scenes/items/item.tscn" id="12_hf5qg"]
 [ext_resource type="PackedScene" uid="uid://bxujno5kahon0" path="res://scenes/enemies/scout.tscn" id="12_x23i0"]
+[ext_resource type="PackedScene" uid="uid://chiiqx75gfw6v" path="res://scenes/enemies/drone.tscn" id="13_8dmnh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yplp2"]
 resource_name = "walls"
@@ -98,6 +99,9 @@ rotation = -2.77333
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("12_x23i0")]
 position = Vector2(1162, 1059)
+
+[node name="Drone" parent="Enemies" index="1" instance=ExtResource("13_8dmnh")]
+position = Vector2(998, 998)
 
 [node name="Item" parent="." index="6" instance=ExtResource("12_hf5qg")]
 position = Vector2(257, 557)

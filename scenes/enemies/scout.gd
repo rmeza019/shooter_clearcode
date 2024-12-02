@@ -22,6 +22,8 @@ func _process(_delta: float) -> void:
 			current_gun = not current_gun
 			$LaserCooldown.start()
 
+func hit():
+	print("scout took damage")
 
 func _on_attack_area_body_entered(_body: Node2D) -> void:
 	player_nearby = true

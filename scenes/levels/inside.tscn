@@ -51,7 +51,7 @@ position = Vector2(2730, -980)
 position = Vector2(0, 30.5)
 shape = SubResource("RectangleShape2D_pxoq3")
 
-[node name="Player" parent="." index="7"]
+[node name="Player" parent="." index="8"]
 position = Vector2(2439, -300)
 metadata/_edit_group_ = true
 

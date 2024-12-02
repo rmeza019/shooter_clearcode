@@ -9,7 +9,7 @@ radius = 46.0109
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3o37"]
 radius = 715.07
 
-[node name="Scout" type="CharacterBody2D" groups=["Scouts"]]
+[node name="Scout" type="CharacterBody2D" groups=["Entities", "Scouts"]]
 collision_layer = 2
 collision_mask = 11
 script = ExtResource("1_saxqo")
@@ -22,7 +22,7 @@ position = Vector2(33, 30)
 rotation = 1.5708
 texture = ExtResource("1_0ds3c")
 
-[node name="AttackArea" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="." groups=["Entities", "Scouts"]]
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
