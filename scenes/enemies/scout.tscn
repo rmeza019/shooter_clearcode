@@ -1,10 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxujno5kahon0"]
+[gd_scene load_steps=7 format=3 uid="uid://bxujno5kahon0"]
 
 [ext_resource type="Texture2D" uid="uid://dl1smy20slpux" path="res://graphics/enemies/scout.png" id="1_0ds3c"]
 [ext_resource type="Script" path="res://scenes/enemies/scout.gd" id="1_saxqo"]
+[ext_resource type="Shader" path="res://scenes/enemies/scout.gdshader" id="2_t6g8j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uoijt"]
 radius = 46.0109
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7jnbg"]
+shader = ExtResource("2_t6g8j")
+shader_parameter/color = Color(0.686828, 0.894579, 0.955092, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3o37"]
 radius = 715.07
@@ -15,20 +21,24 @@ collision_mask = 11
 script = ExtResource("1_saxqo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_uoijt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7jnbg")
 position = Vector2(33, 30)
 rotation = 1.5708
 texture = ExtResource("1_0ds3c")
 
 [node name="AttackArea" type="Area2D" parent="." groups=["Entities", "Scouts"]]
+visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_c3o37")
 
 [node name="LaserSpawnPositions" type="Node2D" parent="."]
+visible = false
 
 [node name="Marker2D" type="Marker2D" parent="LaserSpawnPositions"]
 position = Vector2(105, -26)
