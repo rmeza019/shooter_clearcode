@@ -36,7 +36,6 @@ func hit():
 func _on_attack_area_body_entered(_body: Node2D) -> void:
 	player_nearby = true
 
-
 func _on_attack_area_body_exited(_body: Node2D) -> void:
 	player_nearby = false
 

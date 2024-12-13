@@ -21,7 +21,6 @@ collision_mask = 11
 script = ExtResource("1_saxqo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_uoijt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -31,14 +30,12 @@ rotation = 1.5708
 texture = ExtResource("1_0ds3c")
 
 [node name="AttackArea" type="Area2D" parent="." groups=["Entities", "Scouts"]]
-visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_c3o37")
 
 [node name="LaserSpawnPositions" type="Node2D" parent="."]
-visible = false
 
 [node name="Marker2D" type="Marker2D" parent="LaserSpawnPositions"]
 position = Vector2(105, -26)
