@@ -105,7 +105,7 @@ position = Vector2(1162, 1059)
 position = Vector2(998, 998)
 
 [node name="Bug" parent="Enemies" index="2" instance=ExtResource("14_067xi")]
-position = Vector2(-642, 936)
+position = Vector2(-837, 1058)
 
 [node name="Item" parent="." index="6" instance=ExtResource("12_hf5qg")]
 position = Vector2(257, 557)
