@@ -102,7 +102,7 @@ rotation = -2.77333
 position = Vector2(1162, 1059)
 
 [node name="Drone" parent="Enemies" index="1" instance=ExtResource("13_8dmnh")]
-position = Vector2(998, 998)
+position = Vector2(383, 1856)
 
 [node name="Bug" parent="Enemies" index="2" instance=ExtResource("14_067xi")]
 position = Vector2(-837, 1058)
