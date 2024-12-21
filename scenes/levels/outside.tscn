@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c025hmi2r52lb"]
+[gd_scene load_steps=21 format=3 uid="uid://c025hmi2r52lb"]
 
 [ext_resource type="PackedScene" uid="uid://d1im0yqjkfc77" path="res://scenes/levels/level.tscn" id="1_ge4ga"]
 [ext_resource type="Texture2D" uid="uid://cexpfew6xgcuk" path="res://graphics/ground/stones.png" id="2_85xta"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bxujno5kahon0" path="res://scenes/enemies/scout.tscn" id="12_x23i0"]
 [ext_resource type="PackedScene" uid="uid://chiiqx75gfw6v" path="res://scenes/enemies/drone.tscn" id="13_8dmnh"]
 [ext_resource type="PackedScene" uid="uid://dgi73b22tbdly" path="res://scenes/enemies/bug.tscn" id="14_067xi"]
+[ext_resource type="PackedScene" uid="uid://cuhcbxp6ae0ge" path="res://scenes/enemies/car.tscn" id="16_whhng"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yplp2"]
 resource_name = "walls"
@@ -49,6 +50,12 @@ texture_region_size = Vector2i(390, 390)
 tile_size = Vector2i(390, 390)
 sources/0 = SubResource("TileSetAtlasSource_yplp2")
 sources/1 = SubResource("TileSetAtlasSource_nrjrd")
+
+[sub_resource type="Curve2D" id="Curve2D_qg765"]
+_data = {
+"points": PackedVector2Array(-856.046, -593.299, 856.046, 593.299, -320, 1406, 0, 0, 0, 0, 494, 2957, 415.31, -533.969, -415.31, 533.969, 697, 5000, 364.455, -67.8056, -364.455, 67.8056, -769, 5568, 0, 0, 0, 0, -3405, 5958, 644.154, 711.959, -644.154, -711.959, -4676, 5288, 0, 0, 0, 0, -5482, 3424, -788.24, 669.581, 788.24, -669.581, -4998, 1186, 0, 0, 0, 0, -3447, 559, 0, 0, 0, 0, -1328, 957, 0, 0, 0, 0, -320, 1406)
+}
+point_count = 11
 
 [node name="Outside" instance=ExtResource("1_ge4ga")]
 script = ExtResource("2_sdke3")
@@ -115,6 +122,14 @@ position = Vector2(908, 732)
 
 [node name="Player" parent="." index="8"]
 position = Vector2(-114, 803)
+
+[node name="CarPath" type="Path2D" parent="." index="11"]
+position = Vector2(186, -42)
+curve = SubResource("Curve2D_qg765")
+
+[node name="Car" parent="CarPath" index="0" instance=ExtResource("16_whhng")]
+position = Vector2(-320, 1406)
+rotation = 0.606059
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
