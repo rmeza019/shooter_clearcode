@@ -1,8 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://chiiqx75gfw6v"]
+[gd_scene load_steps=11 format=3 uid="uid://chiiqx75gfw6v"]
 
 [ext_resource type="Texture2D" uid="uid://dtbdayuhadbk4" path="res://graphics/enemies/drone.png" id="1_n1mmo"]
 [ext_resource type="Script" path="res://scenes/enemies/drone.gd" id="1_t4yj4"]
+[ext_resource type="Shader" path="res://scenes/enemies/drone.gdshader" id="2_mqr05"]
 [ext_resource type="Texture2D" uid="uid://df4qe4yfwhiq2" path="res://graphics/explosions/explosion_3.png" id="3_5lgvx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t0rrd"]
+shader = ExtResource("2_mqr05")
+shader_parameter/color = Color(0.531934, 0.668344, 0.895804, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pup8o"]
 radius = 70.0
@@ -10,6 +16,45 @@ height = 160.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2j027"]
 radius = 1251.06
+
+[sub_resource type="Animation" id="Animation_ytolu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_li7pq"]
 resource_name = "explosion"
@@ -66,45 +111,6 @@ tracks/3/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ytolu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Explosion:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [25]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Explosion:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mm57m"]
 _data = {
 "RESET": SubResource("Animation_ytolu"),
@@ -114,10 +120,10 @@ _data = {
 [node name="Drone" type="CharacterBody2D" groups=["Entities"]]
 rotation = 1.5708
 collision_layer = 2
-collision_mask = 15
 script = ExtResource("1_t4yj4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["Entities"]]
+material = SubResource("ShaderMaterial_t0rrd")
 texture = ExtResource("1_n1mmo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
