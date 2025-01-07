@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c025hmi2r52lb"]
+[gd_scene load_steps=16 format=3 uid="uid://c025hmi2r52lb"]
 
 [ext_resource type="PackedScene" uid="uid://d1im0yqjkfc77" path="res://scenes/levels/level.tscn" id="1_ge4ga"]
 [ext_resource type="Texture2D" uid="uid://cexpfew6xgcuk" path="res://graphics/ground/stones.png" id="2_85xta"]
@@ -9,11 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://du2kbkvhihn00" path="res://graphics/tilesets/soil.png" id="5_he5we"]
 [ext_resource type="PackedScene" uid="uid://chjopvmq5ij0j" path="res://scenes/objects/house.tscn" id="6_u0hju"]
 [ext_resource type="PackedScene" uid="uid://do11fyame73w" path="res://scenes/objects/light_fan_animation.tscn" id="7_heap5"]
-[ext_resource type="PackedScene" uid="uid://d1uikjbse0dnx" path="res://scenes/objects/toilet.tscn" id="9_bgsvk"]
-[ext_resource type="PackedScene" uid="uid://demcplhbbrbr" path="res://scenes/objects/crate.tscn" id="10_fhdhf"]
-[ext_resource type="PackedScene" uid="uid://dd0epeqy6vs8f" path="res://scenes/items/item.tscn" id="12_hf5qg"]
-[ext_resource type="PackedScene" uid="uid://bxujno5kahon0" path="res://scenes/enemies/scout.tscn" id="12_x23i0"]
-[ext_resource type="PackedScene" uid="uid://chiiqx75gfw6v" path="res://scenes/enemies/drone.tscn" id="13_8dmnh"]
 [ext_resource type="PackedScene" uid="uid://dgi73b22tbdly" path="res://scenes/enemies/bug.tscn" id="14_067xi"]
 [ext_resource type="PackedScene" uid="uid://cuhcbxp6ae0ge" path="res://scenes/enemies/car.tscn" id="16_whhng"]
 
@@ -22,15 +17,25 @@ resource_name = "walls"
 texture = ExtResource("4_ftn7u")
 texture_region_size = Vector2i(390, 390)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(195, -62, -64, -64, -64, 58, 195, 60)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-195, -57.9827, 195, -57.9828, 195, 59.397, -195, 57.9828)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-195, -58, 66, -66, 68, 62, -195, 62)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-56, -64, 64, -66, 64, 195, -60, 195)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(195, 60, 62, 70, 66, 195, -56, 195, -58, -60, 195, -62)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-195, -62, 66, -68, 58, 195, -56, 195, -54, 60, -195, 60)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62, -195, -60, 195, 64, 195, 60, -195)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62, -195, -60, 64, 195, 58, 195, -58, 58, -62, 54, -195)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, -195, -66, -58, -195, -56, -195, 62, 72, 58, 60, -195)
 0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 46, 58, -195, -60, -195, -61, 44.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nrjrd"]
 resource_name = "soil"
@@ -48,6 +53,8 @@ texture_region_size = Vector2i(390, 390)
 
 [sub_resource type="TileSet" id="TileSet_a22to"]
 tile_size = Vector2i(390, 390)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_yplp2")
 sources/1 = SubResource("TileSetAtlasSource_nrjrd")
 
@@ -62,7 +69,7 @@ script = ExtResource("2_sdke3")
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
-position = Vector2(597, 518)
+position = Vector2(1694, 874)
 texture = ExtResource("2_85xta")
 region_enabled = true
 region_rect = Rect2(-18195, -7753, 39580.6, 18702.2)
@@ -77,7 +84,7 @@ format = 2
 layer_0/name = "Soil"
 layer_0/tile_data = PackedInt32Array(-65532, 1, 0, 4, 1, 1, 65540, 1, 2, -65531, 65537, 0, 5, 65537, 1, 65541, 65537, 2, -65530, 131073, 0, 6, 131073, 1, 65542, 131073, 2, -196612, 1, 0, -131076, 1, 1, -65540, 1, 2, -196611, 65537, 0, -131075, 65537, 1, -65539, 65537, 2, -196610, 131073, 0, -131074, 131073, 1, -65538, 131073, 2, 65529, 1, 0, 131065, 1, 1, 196601, 1, 2, 65530, 65537, 0, 131066, 65537, 1, 196602, 65537, 2, 65531, 131073, 0, 131067, 131073, 1, 196603, 131073, 2)
 layer_1/name = "Walls"
-layer_1/tile_data = PackedInt32Array(65532, 131072, 0, 65531, 65536, 0, 65530, 65536, 0, 65529, 0, 0, 6, 0, 0, 7, 65536, 0, 8, 65536, 0, 9, 131072, 0)
+layer_1/tile_data = PackedInt32Array(65532, 131072, 0, 65531, 65536, 0, 65530, 65536, 0, 65529, 0, 0, 6, 0, 0, 7, 65536, 0, 8, 65536, 0, 9, 131072, 0, 196611, 0, 2, 262147, 0, 2, 327683, 0, 2, 131075, 0, 1, 393219, 65536, 2, 393220, 65536, 0, 393221, 65536, 0, 393222, 131072, 2, 327686, 0, 2, 262150, 0, 2, 196614, 65536, 1, 196615, 65536, 0, 196616, 65536, 0, 196617, 131072, 1, 262153, 0, 2, 327689, 0, 2, 393225, 65536, 2, 393226, 65536, 0, 393227, 65536, 0, 327692, 0, 2, 262156, 0, 2, 393228, 131072, 2, 131076, 0, 1, 196612, 0, 2, 262148, 0, 2, 327684, 0, 3, 131077, 0, 0, 131078, 65536, 0, 131079, 65536, 0, 131080, 65536, 0, 131081, 65536, 0, 131082, 131072, 1, 196618, 0, 3, 262155, 0, 3, 196619, 65536, 1, 196620, 131072, 2, 131085, 131072, 2, 131084, 65536, 1, 65549, 0, 1)
 
 [node name="House" parent="Ground" index="3" instance=ExtResource("6_u0hju")]
 position = Vector2(-3407, 5294)
@@ -87,43 +94,15 @@ rotation = -1.72439
 position = Vector2(-1415, 3050)
 frame_progress = 0.93526
 
-[node name="Toilet" parent="Ground" index="5" instance=ExtResource("9_bgsvk")]
-position = Vector2(1208, 513)
-rotation = 0.937242
-
-[node name="Toilet2" parent="Ground" index="6" instance=ExtResource("9_bgsvk")]
-position = Vector2(1204, 908)
-rotation = 0.937242
-
-[node name="Crate" parent="Ground" index="7" instance=ExtResource("10_fhdhf")]
-position = Vector2(104, 495)
-rotation = -0.584685
-
-[node name="Crate2" parent="Ground" index="8" instance=ExtResource("10_fhdhf")]
-position = Vector2(304, 935)
-rotation = -2.77333
-
 [node name="Gate" parent="." index="1" instance=ExtResource("2_d765n")]
 
-[node name="Scout" parent="Enemies" index="0" instance=ExtResource("12_x23i0")]
-position = Vector2(1162, 1059)
+[node name="Bug" parent="Enemies" index="0" instance=ExtResource("14_067xi")]
+position = Vector2(1081, 1693)
 
-[node name="Drone" parent="Enemies" index="1" instance=ExtResource("13_8dmnh")]
-position = Vector2(383, 1856)
+[node name="Player" parent="." index="6"]
+position = Vector2(1470, 762)
 
-[node name="Bug" parent="Enemies" index="2" instance=ExtResource("14_067xi")]
-position = Vector2(-837, 1058)
-
-[node name="Item" parent="." index="6" instance=ExtResource("12_hf5qg")]
-position = Vector2(257, 557)
-
-[node name="Item3" parent="." index="7" instance=ExtResource("12_hf5qg")]
-position = Vector2(908, 732)
-
-[node name="Player" parent="." index="8"]
-position = Vector2(-114, 803)
-
-[node name="CarPath" type="Path2D" parent="." index="11"]
+[node name="CarPath" type="Path2D" parent="." index="9"]
 position = Vector2(186, -42)
 curve = SubResource("Curve2D_qg765")
 
